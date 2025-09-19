@@ -2,7 +2,7 @@
 using namespace std;
 class A{
     public:
-    int x;//data member but by default private class
+    int x;
 };
 int main(){
     //Non member function
