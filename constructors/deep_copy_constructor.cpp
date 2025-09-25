@@ -41,6 +41,10 @@ class A{
             ptr[0]=51;
         }
     }
+    ~A(){
+        delete[] ptr;
+        cout<<"Destructor called"<<endl;
+    }
 };
 
 int main(){
