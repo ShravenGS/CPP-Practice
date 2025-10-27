@@ -1,22 +1,35 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-int main() {
-    int arr[10],i;
-    cout<<"Enter 10 integers:"<<endl;
+int main(){
+    int n,i;
+    cout<<"Enter the size of the array";
+    cin>>n;
+
+    int arr[n];
+    bool hasNegative=false;
+
+    cout<<"Enter the integer"<<endl;
+
     try{
-        for(i=0;i<10;i++){
-            cout<<"Enter the number"<<i+1<<":";
+        for(i=0;i<n;i++){
+            cout<<"Enter the number:";
             cin>>arr[i];
-            
-        if(arr[i]<0){
-            throw arr[i];
+        }
+        cout<<"Checking numbers...."<<endl;
+        for(i=0;i<n;i++){
+            if(arr[i]<0){
+                hasNegative=true;
+                throw arr[i];
+            }
+        }
+
+        if(!hasNegative){
+            cout<<"All numbers are non negative"<<endl;
         }
     }
-    cout<<"\nAll numbers are non-negative"<<endl;
-    } 
-    catch(int n){
-        cout<<"\nException caught!Negative number found:"<<n<<endl;
-    }
 
+    catch(int neg){
+        cout<<"Exception caught!"<<endl;
+    }
     return 0;
 }
