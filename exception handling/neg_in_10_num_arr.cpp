@@ -4,7 +4,8 @@ int main(){
     int n,i;
     cout<<"Enter the size of the array";
     cin>>n;
-
+    int negatives[n];
+    int negCount=0;
     int arr[n];
     bool hasNegative=false;
 
@@ -19,17 +20,21 @@ int main(){
         for(i=0;i<n;i++){
             if(arr[i]<0){
                 hasNegative=true;
-                throw arr[i];
+                negatives[negCount++]=arr[i];
             }
         }
 
         if(!hasNegative){
             cout<<"All numbers are non negative"<<endl;
         }
+        else{
+            throw negCount;
+        }
     }
 
-    catch(int neg){
+    catch(int count){
         cout<<"Exception caught!"<<endl;
+        cout<<"Total number of negative numbers found:"<<count<<endl;
     }
     return 0;
 }
